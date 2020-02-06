@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   var query = 'ritorno al futuro'
 
@@ -8,7 +7,7 @@ $(document).ready(function () {
     data: {
       api_key : '6cc4521c525a43f7df9f1050e00499bb',
       query : query ,
-      lenguage : 'it-IT'
+      language : 'it-IT'
     },
     success: function (data) {
       var films = data.results;
@@ -29,8 +28,16 @@ function printFilms(films) {
     var template = Handlebars.compile(source);
     var thisFilm = films[i];
     console.log(thisFilm);
-    var context = { title: "My New Post", body: "This is my first post!" };
+    var context = {
+      title: thisFilm.title,
+      original_title: thisFilm.original_title,
+      original_language: thisFilm.original_language,
+      vote_average: thisFilm.vote_average
+   };
     var html = template(context);
+
+    $('.covers').append(html);
+
   }
 
 }
