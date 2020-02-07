@@ -8,6 +8,10 @@ $(document).ready(function () {
 
 });
 
+
+// -----------------Funzioni----------------------
+
+
 function resetSearch() {                                //creo funzione che resetta la barra di ricerca
   $('.covers').html('');                                //gli dico che tutto quello che c'e' nella mia ul covers deve diventare vuoto
   $('#query').val('');                                  //gli dico di azzerare anche quello che sta dentro input
@@ -68,7 +72,3 @@ function printFilms(films) {                          //creo funzione che mi ser
   }
 
 }
-// "original_title":"Back to the Future",
-// "original_language": "en",
-// "title": "Back to the Future",
-//  "vote_average": 8.2,
