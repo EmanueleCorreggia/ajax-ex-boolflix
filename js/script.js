@@ -1,12 +1,29 @@
 $(document).ready(function () {
-  var query = 'ritorno al futuro'                     //creo una query momentanea
+
+  $('#query-button').click(function(){                 //gli dico che quando faccio click sul bottone search
+    var query = $('#query').val();                     //mi va a prendere il valore inserito nel input
+    getMovies(query);                                  //gli dico che deve eseguire la funzione per prendere il film cercato
+    resetSearch();                                     //
+  });
+
+});
+
+function resetSearch() {                                //creo funzione che resetta la barra di ricerca
+  $('.covers').html('');                                //gli dico che tutto quello che c'e' nella mia ul covers deve diventare vuoto
+  $('#query').val('');                                  //gli dico di azzerare anche quello che sta dentro input
+}
+
+
+function getMovies(string) {                              //creo funzione che mi prende il film
+  var api_key = '6cc4521c525a43f7df9f1050e00499bb';       //inserisco in una variabile la mia api_key
+  var url = 'https://api.themoviedb.org/3/search/movie';  //inserisco in una variabile la mia url
 
   $.ajax({
-    url: 'https://api.themoviedb.org/3/search/movie', //metto url api
+    url: url ,                                         //metto variabile url api
     method: 'GET',                                    //seleziono il medoto get
     data: {                                           //seleziono i data che prenderemo dalla api
-      api_key : '6cc4521c525a43f7df9f1050e00499bb',
-      query : query ,
+      api_key : api_key,
+      query : string ,
       language : 'it-IT'
     },
     success: function (data) {                        //dico cosa deve accadere in caso di successo nella ricerca
@@ -19,7 +36,8 @@ $(document).ready(function () {
       console.log(errors);
     }
   }) ;
-})
+
+}
 
 
 function printFilms(films) {                          //creo funzione che mi servira' per la ricerca films

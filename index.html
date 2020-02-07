@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+  <div class="search-bar">
+    <input id="query" type="text" name="" value=""placeholder="Inserisci Titolo del film">
+    <button id="query-button" type="button" name="button">Search</button>
+  </div>
     <ul class="covers"></ul>
 
 
     <script id="film-template" type="text/x-handlebars-template">
-    <li>{{title}}</li>
-    <li>{{original_title}}</li>
-    <li>{{original_language}}</li>
-    <li>{{vote_average}}</li>
+    <li>Titolo: {{title}}</li>
+    <li>Titolo Originele:{{original_title}}</li>
+    <li>Linguaggio:{{original_language}}</li>
+    <li>Voto:{{vote_average}}</li>
     </script>
 
 
