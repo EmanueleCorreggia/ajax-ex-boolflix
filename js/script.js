@@ -27,11 +27,14 @@ function getMovies(string) {                              //creo funzione che mi
       language : 'it-IT'
     },
     success: function (data) {                        //dico cosa deve accadere in caso di successo nella ricerca
+      if (data.total_results > 0) {                   //controllo che ci siano risulati
       var films = data.results;
-      // console.log(films);
-      printFilms(films);                             //in caso di successo deve applicarsi questa funzione che tra poco creo
-
-    },
+      printFilms(films);                             //in caso di successo deve applicarsi questa funzione
+    }else{
+      resetSearch();
+      printNoResult();                                //in caso non ci sono risulati deve applicarsi questa funzione
+    }
+  },
     error: function (request , state, errors) {      //dico cosa deve accadere in caso di errore nella ricerca
       console.log(errors);
     }
@@ -39,6 +42,13 @@ function getMovies(string) {                              //creo funzione che mi
 
 }
 
+
+function printNoResult() {
+  var source = $('#noresult-template').html();          //creo mio template con handlebars
+  var template = Handlebars.compile(source);
+  var html = template();                               //creo var htlm e gli dico dove andare a stampaare nel mio html
+  $('.covers').append(html);
+}
 
 function printFilms(films) {                          //creo funzione che mi servira' per la ricerca films
   for (var i = 0; i < films.length; i++) {            //creo ciclo for dove gli dico di andare a cercare in tutti i films presenti
@@ -53,7 +63,6 @@ function printFilms(films) {                          //creo funzione che mi ser
       vote_average: thisFilm.vote_average
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
-
     $('.covers').append(html);
 
   }

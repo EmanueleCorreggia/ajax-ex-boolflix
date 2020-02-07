@@ -17,10 +17,17 @@
 
 
     <script id="film-template" type="text/x-handlebars-template">
-    <li>Titolo: {{title}}</li>
-    <li>Titolo Originele:{{original_title}}</li>
-    <li>Linguaggio:{{original_language}}</li>
-    <li>Voto:{{vote_average}}</li>
+    <li><span>Titolo:</span> {{title}}
+      <ul>
+      <li> <span>Titolo Originele:</span>{{original_title}}</li>
+      <li><span>Linguaggio:</span>{{original_language}}</li>
+      <li><span>Voto:</span>{{vote_average}}</li>
+      </ul>
+    </li>
+    </script>
+
+    <script id="noresult-template" type="text/x-handlebars-template">
+      <li>Non Ci sono Risultati</li>
     </script>
 
 
