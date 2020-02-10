@@ -4,3 +4,7 @@ li  {
 #film-template , span {
   color: red;
 }
+
+.lang {
+  width: 50px;
+}

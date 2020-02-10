@@ -63,7 +63,7 @@ function printFilms(films) {                          //creo funzione che mi ser
     var context = {                                   //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
       title: thisFilm.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
       original_title: thisFilm.original_title,
-      original_language: thisFilm.original_language,
+      original_language: printLanguage(thisFilm.original_language),//gli dico che deve applicare la funzione printLanguage
       vote_average: printStars(thisFilm.vote_average)  //gli dico che deve applicare la funzione printStars a questo film
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
@@ -72,11 +72,6 @@ function printFilms(films) {                          //creo funzione che mi ser
   }
 
 }
-
-
-
-// <i class="fas fa-star"></i>    piena
-// <i class="far fa-star"></i>     vuota
 
 
 function printStars(num) {                            //creo funzione per stamapre le stelline
@@ -91,4 +86,29 @@ function printStars(num) {                            //creo funzione per stamap
     }
   }
   return string                                         //trasformo stampo valore
+}
+
+
+
+function printLanguage(string) {                                              //creo funzione printLanguage
+  var availableLangs = ['it','en','de','es','fr','nl'];                       //creo var che contiene un array
+  if (availableLangs.includes(string)) {                                      //creo condizione : se nella var include una stringa nell array
+    string = '<img class="lang" src="img/' + string + '.svg" alt="en">';      //dico che nella stringa deve mettere la bandiera corrispondente
+  }
+  if (availableLangs.includes(string)) {
+    string = '<img class="lang" src="img/' + string + '.svg" alt="it">';
+  }
+  if (availableLangs.includes(string)) {
+    string = '<img class="lang" src="img/' + string + '.svg" alt="de">';
+  }
+  if (availableLangs.includes(string)) {
+    string = '<img class="lang" src="img/' + string + '.svg" alt="es">';
+  }
+  if (availableLangs.includes(string)) {
+    string = '<img class="lang" src="img/' + string + '.svg" alt="fr">';
+  }
+  if (availableLangs.includes(string)) {
+    string = '<img class="lang" src="img/' + string + '.svg" alt="nl">';
+  }
+  return string;
 }

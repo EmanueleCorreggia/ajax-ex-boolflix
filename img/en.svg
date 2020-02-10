@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1500" height="750" id="Flag of the United Kingdom">
+<rect width="1500" height="750" fill="white"/>
+<g id="upper_half">
+  <g fill="#002b7f" id="ul_blue">
+    <polygon points="0,83.8525 0,250 332.295,250"/>
+    <polygon points="167.705,0 625,0 625,228.647"/>
+  </g>
+  <use xlink:href="#ul_blue" transform="translate(1500) scale(-1, 1)"/>
+  <g fill="#ce1126">
+    <polygon points="0,0 500,250 388.197,250 0,55.9017"/>
+    <polygon points="1500,0 1000,250 888.197,250 1388.2,0"/>
+  </g>
+</g>
+<use xlink:href="#upper_half" transform="translate(1500, 750) rotate(180)"/>
+<path fill="#ce1126" d="M 675,0 h 150 v 300 h 675 v 150 h -675 v 300 h -150 v -300 h -675 v -150 h 675 z"/>
+</svg>
