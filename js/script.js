@@ -23,9 +23,9 @@ function getMovies(string) {                              //creo funzione che mi
   var url = 'https://api.themoviedb.org/3/search/movie';  //inserisco in una variabile la mia url
 
   $.ajax({
-    url: url ,                                         //metto variabile url api
-    method: 'GET',                                    //seleziono il medoto get
-    data: {                                           //seleziono i data che prenderemo dalla api
+    url: url ,                                            //metto variabile url api
+    method: 'GET',                                        //seleziono il medoto get
+    data: {                                               //seleziono i data che prenderemo dalla api
       api_key : api_key,
       query : string ,
       language : 'it-IT'
@@ -64,11 +64,31 @@ function printFilms(films) {                          //creo funzione che mi ser
       title: thisFilm.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
       original_title: thisFilm.original_title,
       original_language: thisFilm.original_language,
-      vote_average: thisFilm.vote_average
+      vote_average: printStars(thisFilm.vote_average)  //gli dico che deve applicare la funzione printStars a questo film
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
     $('.covers').append(html);
 
   }
 
+}
+
+
+
+// <i class="fas fa-star"></i>    piena
+// <i class="far fa-star"></i>     vuota
+
+
+function printStars(num) {                            //creo funzione per stamapre le stelline
+  num = Math.ceil(num / 2);                           //divido il numero per 2 applico funzione che arrotonda per eccesso
+  var string = '';                                    //creo una var vuota che verra' riempita dalle stelle
+
+  for (var i = 1; i <= 5; i++) {                       //mi servono 5 stelle quindi gli dico che deve fare un ciclo di 5 giri
+    if (i <= num) {                                    //gli dico che se i e' uguale o minore di num mi stampa la stellina piena
+      string += '<i class="fas fa-star"></i>';
+    }else {                                             //altrimenti mi stampa la stellina vuota
+      string += '<i class="far fa-star"></i>';
+    }
+  }
+  return string                                         //trasformo stampo valore
 }
