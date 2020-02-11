@@ -41,7 +41,7 @@ function getMovies(string) {                              //creo funzione che mi
     success: function (data) {                        //dico cosa deve accadere in caso di successo nella ricerca
       if (data.total_results > 0) {                   //controllo che ci siano risulati
       var films = data.results;
-      printResult('film', films);                             //in caso di successo deve applicarsi questa funzione
+      printResult('film', films);                     //in caso di successo deve applicarsi questa funzione
     }else{
       printNoResult($('.films'));                     //in caso non ci sono risulati deve applicarsi questa funzione
     }
@@ -79,28 +79,28 @@ function getTv(string) {                                  //creo stessa funzione
   });
 }
 
-function printNoResult() {
+function printNoResult() {                              //creo funzione in caso non ci siano risultati
   var source = $('#noresult-template').html();          //creo mio template con handlebars
   var template = Handlebars.compile(source);
   var html = template();                               //creo var htlm e gli dico dove andare a stampaare nel mio html
   container.append(html);
 }
 
-function printResult(type, results) {                      //creo funzione che mi servira' per la ricerca films
+function printResult(type, results) {                      //creo funzione che mi servira' per la ricerca films e serie tv in base al type
     var originalTitle;
-    var source = $('#film-template').html();             //creo mio template con handlebars
+    var source = $('#film-template').html();               //creo mio template con handlebars
     var template = Handlebars.compile(source);
-    var thisResult = results[i];                         //creo la var thisresult ovvero la var che conterra'il film che cerchero'
-  for (var i = 0; i < results.length; i++) {               //creo ciclo for dove gli dico di andare a cercare in tutti i films presenti
+    var thisResult = results[i];                            //creo la var thisresult ovvero la var che conterra'il film o seri tv che cerchero'
+  for (var i = 0; i < results.length; i++) {               //creo ciclo for dove gli dico di andare a cercare in tutti i films  o serie tv presenti
     var thisResult = results[i];
-    if(type == 'film') {
+    if(type == 'film') {                                    //dico se e' tipo film di darmi questi risultati
       originalTitle = thisResult.original_title;
       title = thisResult.title;
-      var container = $('.films');
-    } else if (type == 'tv'){
+      var container = $('.films');                          // dico di metterli nel container film nell html
+    } else if (type == 'tv'){                               //dico se e' tipo seri tv di darmi questi risulati
       originalTitle = thisResult.original_name;
       title = thisResult.name;
-      var container = $('.tvs');
+      var container = $('.tvs');                            // dico di metterli nel container serie tv nell html
     }
     var context = {                                   //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
       title: thisResult.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
@@ -110,16 +110,13 @@ function printResult(type, results) {                      //creo funzione che m
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
     container.append(html);
-
   }
-
 }
 
 
 function printStars(num) {                            //creo funzione per stamapre le stelline
   num = Math.ceil(num / 2);                           //divido il numero per 2 applico funzione che arrotonda per eccesso
   var string = '';                                    //creo una var vuota che verra' riempita dalle stelle
-
   for (var i = 1; i <= 5; i++) {                       //mi servono 5 stelle quindi gli dico che deve fare un ciclo di 5 giri
     if (i <= num) {                                    //gli dico che se i e' uguale o minore di num mi stampa la stellina piena
       string += '<i class="fas fa-star"></i>';
