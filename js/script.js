@@ -102,12 +102,12 @@ function printResult(type, results) {                      //creo funzione che m
       title = thisResult.name;
       var container = $('.tvs');                            // dico di metterli nel container serie tv nell html
     }
-    var posterImage;
-    var urlBaseImage = 'https://image.tmdb.org/t/p/w342';
+    var posterImage;                                        //creo var del poster
+    var urlBaseImage = 'https://image.tmdb.org/t/p/w342';   //creo var che contiene url dove andremo a prender il poster
 
-    if(thisResult.poster_path == null) {
+    if(thisResult.poster_path == null) {                    //gli dico che se poster_path e' null deve stampare un immagine che ho io
       posterImage = '<img src="img/default-poster.png" alt="'+ title +'">'
-    } else {
+    } else {                                                //in caso stampa immagine corrispondente
     posterImage = '<img src="' + urlBaseImage + thisResult.poster_path + '" alt="'+ title +'">'
     }
 
