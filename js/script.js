@@ -102,11 +102,21 @@ function printResult(type, results) {                      //creo funzione che m
       title = thisResult.name;
       var container = $('.tvs');                            // dico di metterli nel container serie tv nell html
     }
+    var posterImage;
+    var urlBaseImage = 'https://image.tmdb.org/t/p/w342';
+
+    if(thisResult.poster_path == null) {
+      posterImage = '<img src="img/default-poster.png" alt="'+ title +'">'
+    } else {
+    posterImage = '<img src="' + urlBaseImage + thisResult.poster_path + '" alt="'+ title +'">'
+    }
+
     var context = {                                   //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
       title: thisResult.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
       original_title: thisResult.original_title,
       original_language: printLanguage(thisResult.original_language),//gli dico che deve applicare la funzione printLanguage
-      vote_average: printStars(thisResult.vote_average)  //gli dico che deve applicare la funzione printStars a questo film
+      vote_average: printStars(thisResult.vote_average) , //gli dico che deve applicare la funzione printStars a questo film
+      poster: posterImage
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
     container.append(html);

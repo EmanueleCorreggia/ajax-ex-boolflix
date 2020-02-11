@@ -16,7 +16,7 @@
   </div>
   <h2>Films</h2>
     <ul class="films"></ul>
-  <h2>TV</h2>
+  <h2>SERIE TV</h2>
     <ul class="tvs"></ul>
 
 
@@ -26,8 +26,10 @@
 
 
     <script id="film-template" type="text/x-handlebars-template">
-    <li><span>Titolo:</span> {{title}}
+
       <ul>
+      <li>{{{poster}}}</li>
+      <li><span>Titolo:</span> {{title}}
       <li> <span>Titolo Originele:</span>{{original_title}}</li>
       <li><span>Linguaggio:</span>{{{original_language}}}</li>
       <li><span>Voto:</span>{{{vote_average}}}</li>
