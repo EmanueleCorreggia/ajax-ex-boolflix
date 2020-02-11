@@ -3,16 +3,16 @@ $(document).ready(function () {
   $('#query-button').click(function(){                 //gli dico che quando faccio click sul bottone search
     var query = $('#query').val();                     //mi va a prendere il valore inserito nel input
     getMovies(query);                                  //gli dico che deve eseguire la funzione per prendere il film cercato
-    resetSearch();                                     //
+    resetSearch();
   });
-  $("#input").keyup(function(event) {
+  $("#input").keyup(function(event) {                   //funzione tasto invio al search
     if (event.which == 13) {
       var query = $("#input").val();
       getMovies(query);
       resetSearch();
+      getTv(query);
     }
   });
-
 });
 
 
@@ -20,7 +20,8 @@ $(document).ready(function () {
 
 
 function resetSearch() {                                //creo funzione che resetta la barra di ricerca
-  $('.covers').html('');                                //gli dico che tutto quello che c'e' nella mia ul covers deve diventare vuoto
+  $('.films').html('');                                 //gli dico che tutto quello che c'e' nella mia ul films deve diventare vuoto
+  $('.tvs').html('');                                   //gli dico che tutto quello che c'e' nella mia ul SERI TV deve diventare vuoto
   $('#query').val('');                                  //gli dico di azzerare anche quello che sta dentro input
 }
 
@@ -40,10 +41,9 @@ function getMovies(string) {                              //creo funzione che mi
     success: function (data) {                        //dico cosa deve accadere in caso di successo nella ricerca
       if (data.total_results > 0) {                   //controllo che ci siano risulati
       var films = data.results;
-      printFilms(films);                             //in caso di successo deve applicarsi questa funzione
+      printResult('film', films);                             //in caso di successo deve applicarsi questa funzione
     }else{
-      resetSearch();
-      printNoResult();                                //in caso non ci sono risulati deve applicarsi questa funzione
+      printNoResult($('.films'));                     //in caso non ci sono risulati deve applicarsi questa funzione
     }
   },
     error: function (request , state, errors) {      //dico cosa deve accadere in caso di errore nella ricerca
@@ -53,28 +53,63 @@ function getMovies(string) {                              //creo funzione che mi
 
 }
 
+function getTv(string) {                                  //creo stessa funzione per prendere le serie tv identico a sopra
+  var api_key = '6cc4521c525a43f7df9f1050e00499bb';
+  var url = 'https://api.themoviedb.org/3/search/tv';
+
+  $.ajax({
+    url: url,
+    method: 'GET',
+    data: {
+      api_key: api_key,
+      query: string,
+      language: 'it-IT'
+    },
+    success: function(data) {
+      if(data.total_results > 0) {
+        var tv = data.results;
+        printResult('tv', tv);
+      } else {
+        printNoResult($('.tvs'));
+      }
+    },
+    error: function (request, state, errors) {
+      console.log(errors);
+    }
+  });
+}
 
 function printNoResult() {
   var source = $('#noresult-template').html();          //creo mio template con handlebars
   var template = Handlebars.compile(source);
   var html = template();                               //creo var htlm e gli dico dove andare a stampaare nel mio html
-  $('.covers').append(html);
+  container.append(html);
 }
 
-function printFilms(films) {                          //creo funzione che mi servira' per la ricerca films
-  for (var i = 0; i < films.length; i++) {            //creo ciclo for dove gli dico di andare a cercare in tutti i films presenti
-    var source = $('#film-template').html();          //creo mio template con handlebars
+function printResult(type, results) {                      //creo funzione che mi servira' per la ricerca films
+    var originalTitle;
+    var source = $('#film-template').html();             //creo mio template con handlebars
     var template = Handlebars.compile(source);
-    var thisFilm = films[i];                          //creo la var thisfilm ovvero la var che conterra'il film che cerchero'
-    console.log(thisFilm);
+    var thisResult = results[i];                         //creo la var thisresult ovvero la var che conterra'il film che cerchero'
+  for (var i = 0; i < results.length; i++) {               //creo ciclo for dove gli dico di andare a cercare in tutti i films presenti
+    var thisResult = results[i];
+    if(type == 'film') {
+      originalTitle = thisResult.original_title;
+      title = thisResult.title;
+      var container = $('.films');
+    } else if (type == 'tv'){
+      originalTitle = thisResult.original_name;
+      title = thisResult.name;
+      var container = $('.tvs');
+    }
     var context = {                                   //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
-      title: thisFilm.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
-      original_title: thisFilm.original_title,
-      original_language: printLanguage(thisFilm.original_language),//gli dico che deve applicare la funzione printLanguage
-      vote_average: printStars(thisFilm.vote_average)  //gli dico che deve applicare la funzione printStars a questo film
+      title: thisResult.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
+      original_title: thisResult.original_title,
+      original_language: printLanguage(thisResult.original_language),//gli dico che deve applicare la funzione printLanguage
+      vote_average: printStars(thisResult.vote_average)  //gli dico che deve applicare la funzione printStars a questo film
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
-    $('.covers').append(html);
+    container.append(html);
 
   }
 
