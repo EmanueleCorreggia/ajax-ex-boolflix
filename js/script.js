@@ -5,6 +5,13 @@ $(document).ready(function () {
     getMovies(query);                                  //gli dico che deve eseguire la funzione per prendere il film cercato
     resetSearch();                                     //
   });
+  $("#input").keyup(function(event) {
+    if (event.which == 13) {
+      var query = $("#input").val();
+      getMovies(query);
+      resetSearch();
+    }
+  });
 
 });
 
@@ -93,22 +100,7 @@ function printStars(num) {                            //creo funzione per stamap
 function printLanguage(string) {                                              //creo funzione printLanguage
   var availableLangs = ['it','en','de','es','fr','nl'];                       //creo var che contiene un array
   if (availableLangs.includes(string)) {                                      //creo condizione : se nella var include una stringa nell array
-    string = '<img class="lang" src="img/' + string + '.svg" alt="en">';      //dico che nella stringa deve mettere la bandiera corrispondente
-  }
-  if (availableLangs.includes(string)) {
-    string = '<img class="lang" src="img/' + string + '.svg" alt="it">';
-  }
-  if (availableLangs.includes(string)) {
-    string = '<img class="lang" src="img/' + string + '.svg" alt="de">';
-  }
-  if (availableLangs.includes(string)) {
-    string = '<img class="lang" src="img/' + string + '.svg" alt="es">';
-  }
-  if (availableLangs.includes(string)) {
-    string = '<img class="lang" src="img/' + string + '.svg" alt="fr">';
-  }
-  if (availableLangs.includes(string)) {
-    string = '<img class="lang" src="img/' + string + '.svg" alt="nl">';
+    string = '<img class="lang" src="img/' + string + '.svg">';               //dico che nella stringa deve mettere la bandiera corrispondente
   }
   return string;
 }
