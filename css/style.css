@@ -123,3 +123,53 @@ h2 {
 .top {
   margin-top: 30px;
 }
+#next,
+#prec{
+  position: absolute;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 150px 5px;
+}
+#next{
+  right: 0;
+  cursor: pointer;
+}
+#prec{
+  left: 0;
+  cursor: pointer;
+}
+.card__container{
+  background-color: grey;
+  background-color: #141414;
+  color: #fff;
+  padding: 20px 0px;
+  display: flex;
+  overflow-x:hidden;
+}
+
+.card__movie:hover{
+  z-index: 2;
+  transform: scale(1.1);
+  margin:0px 10px;
+}
+.card__movie ul li{
+  list-style-type: none;
+  margin:20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card__movie ul li span{
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 5px;
+}
+.container{
+  color: #fff;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative
+}
