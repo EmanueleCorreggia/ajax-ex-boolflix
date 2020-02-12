@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/netflix-icona.png">
   </head>
   <body>
     <header>
@@ -70,17 +71,19 @@
 
     <!--HANDLEBARS-->
       <script id ="film-template" type ="text/x-handlebars-template">
+
         <div class="card__movie">
           <div class="poster_path">{{{poster}}}</div>
-          <!-- <ul class="info">
+            <ul class="info">
+              <!-- <li><span>Titolo: </span>{{title}}</li>
+              <li><span>Lingua: </span>{{{original_language}}}</li>
+              <li class="stars"><span>Voto: </span>{{{vote_average}}}</li> -->
+              <!-- <li class="overview"><span>Trama: </span></li>
+              <li class="actors"><span>Attori: </span></li> -->
+            </ul>
 
-            <li><span>Titolo: </span></li>
 
-            <li><span>Lingua: </span></li>
-            <li class="stars"><span>Voto: </span></li>
-            <li class="overview"><span>Trama: </span></li>
-            <li class="actors"><span>Attori: </span></li>
-          </ul> -->
+
         </div>
       </script>
 
