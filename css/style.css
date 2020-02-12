@@ -124,21 +124,34 @@ h2 {
   margin-top: 30px;
 }
 #next,
-#prec{
+#prec,
+#next-tvs,
+#prec-tvs{
   position: absolute;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 150px 5px;
 }
+#next-tvs,
 #next{
   right: 0;
   cursor: pointer;
 }
+#prec-tvs,
 #prec{
   left: 0;
   cursor: pointer;
 }
-.card__container{
+.films{
+  background-color: grey;
+  background-color: #141414;
+  color: #fff;
+  padding: 20px 0px;
+  display: flex;
+  overflow-x:hidden;
+}
+
+.tvs{
   background-color: grey;
   background-color: #141414;
   color: #fff;

@@ -158,20 +158,40 @@ $('#lente').click(function(){                           //al click sull'icona vi
 
 $('#prec').hide();
 
-  $('.card__container').animate({scrollLeft: 0});
+  $('.films').animate({scrollLeft: 0});
 
   $('#prec').click(function(){
-  $('.card__container').animate({scrollLeft: '-=1400'}, 800);
+  $('.films').animate({scrollLeft: '-=1400'}, 800);
   $('#next').show();
-    if ($('.card__container').first('.card__movie').scrollLeft() <= 1400) {
+    if ($('.films').first('.card__movie').scrollLeft() <= 1400) {
         $('#prec').hide();
         }
 })
 
 $('#next').click(function(){
-  $('.card__container').animate({scrollLeft: '+=1400'}, 800);
+  $('.films').animate({scrollLeft: '+=1400'}, 800);
   $('#prec').show();
-    if ($('.card__container').last('.card__movie').scrollLeft()) {
+    if ($('.films').last('.card__movie').scrollLeft()) {
       $('#next').hide();
+      }
+})
+
+$('#prec-tvs').hide();
+
+  $('.tvs').animate({scrollLeft: 0});
+
+  $('#prec-tvs').click(function(){
+  $('.tvs').animate({scrollLeft: '-=1400'}, 800);
+  $('#next-tvs').show();
+    if ($('.tvs').first('.card__movie').scrollLeft() <= 1400) {
+        $('#prec-tvs').hide();
+        }
+})
+
+$('#next-tvs').click(function(){
+  $('.tvs').animate({scrollLeft: '+=1400'}, 800);
+  $('#prec-tvs').show();
+    if ($('.tvs').last('.card__movie').scrollLeft()) {
+      $('#next-tvs').hide();
       }
 })

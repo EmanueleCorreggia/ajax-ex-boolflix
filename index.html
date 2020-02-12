@@ -32,54 +32,61 @@
         </div>
       </header>
 
-    <!-- <video <source src="video/Avengers_Endgame.mp4" autoplay type='video/webm; codecs="vp8, vorbis"' />
+    <video <source src="video/Avengers_Endgame.mp4" loop autoplay type='video/webm; codecs="vp8, vorbis"' />
     <source src="video/Avengers_Endgame.mp4" type="video/mp4"autoplay >
     <source src="video/Avengers_Endgame.ogg" type="video/ogg"autoplay >
     <source src="video/Avengers_Endgame.webm" type="video/webm"autoplay>
-  </video> -->
-
-  <div class="container">
-    <div id="prec">
-      <i class="fas fa-chevron-left fa-2x"></i>
-    </div>
-    <div class="card__container">
-    </div>
-    <div id="next">
-      <i class="fas fa-chevron-right fa-2x"></i>
-    </div>
-  </div>
+  </video>
 
 
 
 
-
-  <h2 class="top">FILM</h2>
-    <ul class="films"></ul>
-  <h2>SERIE TV</h2>
-    <ul class="tvs"></ul>
-
-
-
-
-
-
-
-    <script id="film-template" type="text/x-handlebars-template">
-    <div class="card__movie">
-
-      <div class="poster_path">{{{poster}}}</div>
-
-      <ul class="info">
-      <li><span>Titolo:</span> {{title}}
-      <li> <span>Titolo Originele:</span>{{original_title}}</li>
-      <li><span>Linguaggio:</span>{{{original_language}}}</li>
-      <li class="stars"><span>Voto:</span>{{{vote_average}}}</li>
-      </ul>
-    </li>
+    <div class="container">
+      <div id="prec">
+        <i class="fas fa-chevron-left fa-2x"></i>
+      </div>
+      <h2 class="top">FILM</h2>
+      <div class="films">
+      </div>
+      <div id="next">
+        <i class="fas fa-chevron-right fa-2x"></i>
+      </div>
     </div>
 
 
-    </script>
+    <div class="container">
+      <div id="prec-tvs">
+        <i class="fas fa-chevron-left fa-2x"></i>
+      </div>
+      <h2 class="top">SERIE TV</h2>
+      <div class="tvs">
+      </div>
+      <div id="next-tvs">
+        <i class="fas fa-chevron-right fa-2x"></i>
+      </div>
+    </div>
+
+    <!-- <h2 class="top">FILM</h2> -->
+      <!-- <ul class="films"></ul> -->
+    <!-- <h2>SERIE TV</h2>
+      <ul class="tvs"></ul> -->
+
+
+    <!--HANDLEBARS-->
+      <script id ="film-template" type ="text/x-handlebars-template">
+        <div class="card__movie">
+          <div class="poster_path">{{{poster}}}</div>
+          <!-- <ul class="info">
+
+            <li><span>Titolo: </span></li>
+
+            <li><span>Lingua: </span></li>
+            <li class="stars"><span>Voto: </span></li>
+            <li class="overview"><span>Trama: </span></li>
+            <li class="actors"><span>Attori: </span></li>
+          </ul> -->
+        </div>
+      </script>
 
     <script id="noresult-template" type="text/x-handlebars-template">
       <li>Non Ci sono Risultati</li>
@@ -89,3 +96,7 @@
   <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
+<!-- <h2 class="top">FILM</h2>
+  <ul class="films"></ul>
+<h2>SERIE TV</h2>
+  <ul class="tvs"></ul> -->
