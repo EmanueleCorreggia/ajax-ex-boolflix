@@ -10,11 +10,50 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-  <div class="search-bar">
-    <input id="input" id="query" type="text" name="" value=""placeholder="Inserisci Titolo del film">
-    <button id="query-button" type="button" name="button">Search</button>
+    <header>
+        <div class="header_left">
+            <span><img src="img/netflixlogo.png" alt=""></span>
+            <strong>Home</strong>
+            <span>Serie TV</span>
+            <span>Film</span>
+            <span>Aggiunti di recente</span>
+            <span>La mia lista</span>
+        </div>
+        <div class="header_right">
+          <div class="search-bar">
+            <input id="input" id="search" id="query" type="text" name="" value=""placeholder="Cerca film o serie tv">
+            <!-- <button id="query-button" type="button" name="button">Search</button> -->
+            <img id="lente"src="img/search.png" alt="">
+            <span class="bambini">BAMBINI</span>
+            <i class="fas fa-bell"></i>
+            <img src="https://art-s.nflximg.net/a7774/574ffd46d2bcef69802752f39db6320328fa7774.png" alt="">
+            <i class="fas fa-caret-down"></i>
+          </div>
+        </div>
+      </header>
+
+    <!-- <video <source src="video/Avengers_Endgame.mp4" autoplay type='video/webm; codecs="vp8, vorbis"' />
+    <source src="video/Avengers_Endgame.mp4" type="video/mp4"autoplay >
+    <source src="video/Avengers_Endgame.ogg" type="video/ogg"autoplay >
+    <source src="video/Avengers_Endgame.webm" type="video/webm"autoplay>
+  </video> -->
+
+  <div class="container">
+    <div id="prec">
+      <i class="fas fa-chevron-left fa-2x"></i>
+    </div>
+    <div class="card__container">
+    </div>
+    <div id="next">
+      <i class="fas fa-chevron-right fa-2x"></i>
+    </div>
   </div>
-  <h2>Films</h2>
+
+
+
+
+
+  <h2 class="top">FILM</h2>
     <ul class="films"></ul>
   <h2>SERIE TV</h2>
     <ul class="tvs"></ul>
@@ -26,15 +65,20 @@
 
 
     <script id="film-template" type="text/x-handlebars-template">
+    <div class="card__movie">
 
-      <ul>
-      <li>{{{poster}}}</li>
+      <div class="poster_path">{{{poster}}}</div>
+
+      <ul class="info">
       <li><span>Titolo:</span> {{title}}
       <li> <span>Titolo Originele:</span>{{original_title}}</li>
       <li><span>Linguaggio:</span>{{{original_language}}}</li>
-      <li><span>Voto:</span>{{{vote_average}}}</li>
+      <li class="stars"><span>Voto:</span>{{{vote_average}}}</li>
       </ul>
     </li>
+    </div>
+
+
     </script>
 
     <script id="noresult-template" type="text/x-handlebars-template">

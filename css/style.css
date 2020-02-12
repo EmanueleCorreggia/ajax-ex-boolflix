@@ -1,3 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #141414;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding:10px;
+  background-color: black;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.header_left{
+  color:  #fff;
+  display: flex;
+  align-items: center;
+}
+.header_left span,
+.header_left strong{
+  margin-right: 15px;
+  cursor: pointer;
+  color: white;
+}
+.header_left strong:hover,
+.header_left span:hover{
+  color: #B3B3B3;
+}
+.header_left img{
+  margin-left: 50px;
+  height: 25px;
+  width: 85px;
+}
+
+.search-bar{
+  color: #fff;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.search-bar i{
+  font-size: 20px;
+  cursor: pointer;
+}
+.search-bar span{
+  cursor: pointer;
+}
+.search-bar img{
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+}
+.fa-search{
+  color:white;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.fa-bell{
+  margin-left: 20px;
+  cursor: pointer;
+}
+.fa-caret-down:before {
+  margin: 0px 50px 0px 5px;
+  font-size: 15px;
+  padding: 5px;
+}
+.fa-caret-down {
+  margin: 0 10px;
+}
+.bambini {
+  color: white;
+  cursor: pointer;
+}
+#lente {
+  margin: 0 20px;
+  height: 20px;
+  width: 20px;
+  color: white;
+  cursor: pointer;
+}
+
 li  {
   list-style: none;
 }
@@ -7,4 +96,30 @@ li  {
 
 .lang {
   width: 50px;
+}
+.card__movie {
+  min-width: 200px;
+  min-height: 200px;
+  height: 300px;
+  padding:2px;
+  text-align: center;
+  cursor: pointer;
+  background-color: black;  color: white;
+  transition: 1s;
+  font-size: 15px;
+  display: inline-block;
+}
+.poster_path{
+  width: 100%;
+  height: 100%;
+}
+.poster_path img{
+  width: 196px;
+  height: 296px;
+}
+h2 {
+  color: white;
+}
+.top {
+  margin-top: 30px;
 }

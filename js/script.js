@@ -146,3 +146,32 @@ function printLanguage(string) {                                              //
   }
   return string;
 }
+
+
+$('#input').hide();                                     //nascondo search-bar
+
+$('#lente').click(function(){                           //al click sull'icona visualizzo la search-bar
+  $('#input').fadeIn(500);
+
+});
+
+
+$('#prec').hide();
+
+  $('.card__container').animate({scrollLeft: 0});
+
+  $('#prec').click(function(){
+  $('.card__container').animate({scrollLeft: '-=1400'}, 800);
+  $('#next').show();
+    if ($('.card__container').first('.card__movie').scrollLeft() <= 1400) {
+        $('#prec').hide();
+        }
+})
+
+$('#next').click(function(){
+  $('.card__container').animate({scrollLeft: '+=1400'}, 800);
+  $('#prec').show();
+    if ($('.card__container').last('.card__movie').scrollLeft()) {
+      $('#next').hide();
+      }
+})
