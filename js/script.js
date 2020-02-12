@@ -3,7 +3,12 @@ $(document).ready(function () {
   $('#query-button').click(function(){                 //gli dico che quando faccio click sul bottone search
     var query = $('#query').val();                     //mi va a prendere il valore inserito nel input
     getMovies(query);                                  //gli dico che deve eseguire la funzione per prendere il film cercato
-    resetSearch();
+    resetSearch();                                     //imposto reset alla ricerca
+    $('.first').show();                                //dico che al click sulla ricerca  first deve apparire
+    $('.second').show();                                //dico che al click sulla ricerca  second  deve apparire
+    $('.third').hide();                                 //dico che al click sulla ricerca  third deve sparire
+    $('.none').removeClass();                           //dico che al click sulla ricerca  rimuovo classe display none
+
   });
   $("#input").keyup(function(event) {                   //funzione tasto invio al search
     if (event.which == 13) {
@@ -11,12 +16,40 @@ $(document).ready(function () {
       getMovies(query);
       resetSearch();
       getTv(query);
+      $('.first').show();                               //dico che al tasto invio first si deve vedere
+      $('.second').show();                               //dico che al tasto invio second si deve vedere
+      $('.third').hide();                                //dico che al tasto invio third deve sparire
+      $('.none').removeClass();                           //dico che al tasto invio non rimuovo classe display none
     }
   });
+
+  $('.first').hide();                                   //dico nelle impostazioni iniziali che first deve stare nascosto
+  $('.second').hide();                                  //dico nelle impost iniziali che second deve restare nascoto
+
+
+  getTrending('trending/tv/day', 'tv', '.tvs');        //dico che deve avviare appena apre il browser la funzione per prendere i film di tendenza
+
 });
 
 
 // -----------------Funzioni----------------------
+
+function getTrending(urlFinal, type, container) {                         //creo funzione per prendere film di tendenza
+  $.ajax({
+    url: "https://api.themoviedb.org/3/trending/all/day" ,
+    data: {
+      api_key: 'b7db4886e799d733a0c24ab663a6b884',
+    },
+    success: function (data, stato) {
+      var results = data.results;
+      printResult(type, results);
+    },
+    error: function (richiesta, stato, errore) {
+      $(container).append("<li>È avvenuto un errore. " + errore + "</li>");
+    }
+  });
+}
+
 
 
 function resetSearch() {                                //creo funzione che resetta la barra di ricerca
@@ -156,7 +189,7 @@ $('#lente').click(function(){                           //al click sull'icona vi
 });
 
 
-$('#prec').hide();
+$('#prec').hide();                                                 //dico come si devono comportare le arrow aggiungendo animazione
 
   $('.films').animate({scrollLeft: 0});
 

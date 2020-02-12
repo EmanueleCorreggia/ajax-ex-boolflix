@@ -22,7 +22,6 @@
         <div class="header_right">
           <div class="search-bar">
             <input id="input" id="search" id="query" type="text" name="" value=""placeholder="Cerca film o serie tv">
-            <!-- <button id="query-button" type="button" name="button">Search</button> -->
             <img id="lente"src="img/search.png" alt="">
             <span class="bambini">BAMBINI</span>
             <i class="fas fa-bell"></i>
@@ -32,7 +31,7 @@
         </div>
       </header>
 
-    <video <source src="video/Avengers_Endgame.mp4" loop autoplay type='video/webm; codecs="vp8, vorbis"' />
+  <video <source src="video/Avengers_Endgame.mp4" loop autoplay type='video/webm; codecs="vp8, vorbis"' />
     <source src="video/Avengers_Endgame.mp4" type="video/mp4"autoplay >
     <source src="video/Avengers_Endgame.ogg" type="video/ogg"autoplay >
     <source src="video/Avengers_Endgame.webm" type="video/webm"autoplay>
@@ -40,25 +39,25 @@
 
 
 
-
+    <h2 class="first ">FILM</h2>
     <div class="container">
-      <div id="prec">
+      <div id="prec"class="none">
         <i class="fas fa-chevron-left fa-2x"></i>
       </div>
-      <h2 class="top">FILM</h2>
       <div class="films">
       </div>
-      <div id="next">
+      <div id="next"class="none">
         <i class="fas fa-chevron-right fa-2x"></i>
       </div>
     </div>
 
-
+    <h2 class="second top">SERIE TV</h2>
+    <h2 class="third">I TITOLI DEL MOMENTO</h2>
     <div class="container">
       <div id="prec-tvs">
         <i class="fas fa-chevron-left fa-2x"></i>
       </div>
-      <h2 class="top">SERIE TV</h2>
+
       <div class="tvs">
       </div>
       <div id="next-tvs">
@@ -66,10 +65,7 @@
       </div>
     </div>
 
-    <!-- <h2 class="top">FILM</h2> -->
-      <!-- <ul class="films"></ul> -->
-    <!-- <h2>SERIE TV</h2>
-      <ul class="tvs"></ul> -->
+
 
 
     <!--HANDLEBARS-->
@@ -88,6 +84,7 @@
         </div>
       </script>
 
+
     <script id="noresult-template" type="text/x-handlebars-template">
       <li>Non Ci sono Risultati</li>
     </script>
@@ -96,7 +93,3 @@
   <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
-<!-- <h2 class="top">FILM</h2>
-  <ul class="films"></ul>
-<h2>SERIE TV</h2>
-  <ul class="tvs"></ul> -->

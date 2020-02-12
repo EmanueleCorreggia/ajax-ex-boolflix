@@ -186,3 +186,6 @@ h2 {
   align-items: center;
   position: relative
 }
+.none {
+  display: none;
+}
