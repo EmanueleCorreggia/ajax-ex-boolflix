@@ -33,6 +33,7 @@
       </header>
 
   <video <source src="video/Avengers_Endgame.mp4" loop autoplay type='video/webm; codecs="vp8, vorbis"' />
+
     <source src="video/Avengers_Endgame.mp4" type="video/mp4"autoplay >
     <source src="video/Avengers_Endgame.ogg" type="video/ogg"autoplay >
     <source src="video/Avengers_Endgame.webm" type="video/webm"autoplay>
@@ -75,11 +76,13 @@
         <div class="card__movie">
           <div class="poster_path">{{{poster}}}</div>
             <ul class="info">
-              <!-- <li><span>Titolo: </span>{{title}}</li>
-              <li><span>Lingua: </span>{{{original_language}}}</li>
-              <li class="stars"><span>Voto: </span>{{{vote_average}}}</li> -->
+              <div class="details ">
+              <div class="title"><span>Titolo: </span>{{title}}</div>
+              <div class="language"><span> </span>{{{original_language}}}</div>
+              <div class="stars"><span>Voto: </span>{{{vote_average}}}</div>
               <!-- <li class="overview"><span>Trama: </span></li>
               <li class="actors"><span>Attori: </span></li> -->
+            </div>
             </ul>
 
 
