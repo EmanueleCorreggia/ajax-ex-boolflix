@@ -239,3 +239,39 @@ input {
   width: 250px;
   color: white;
 }
+h1{
+  position: absolute;
+  top: 500px;
+  left: 0;
+  color: red;
+  z-index: 3;
+}
+.title-avengers  {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+  height: 150px;
+  z-index: 3;
+}
+
+.container_button {
+  position: absolute;
+  top: 600px;
+  left: 50px;
+  z-index: 3;
+}
+.button {
+  height: 50px;
+  width: 200px;
+  background-color: black;
+  opacity: 0.79;
+  color: white;
+  font-weight: 700;
+}
+.button:hover {
+  background-color: white;
+  color: black;
+}
+.dim {
+  margin-right:  10px;
+}
