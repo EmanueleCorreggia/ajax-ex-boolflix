@@ -52,10 +52,10 @@ function getTrending(urlFinal, type, container) {                         //creo
 
 
 
-function resetSearch() {                                //creo funzione che resetta la barra di ricerca
-  $('.films').html('');                                 //gli dico che tutto quello che c'e' nella mia ul films deve diventare vuoto
-  $('.tvs').html('');                                   //gli dico che tutto quello che c'e' nella mia ul SERI TV deve diventare vuoto
-  $('#query').val('');                                  //gli dico di azzerare anche quello che sta dentro input
+function resetSearch() {                          //creo funzione che resetta la barra di ricerca
+  $('.films').html('');
+  $('.tvs').html('');                             //gli dico che tutto quello che c'e' nella mia ul SERI TV deve diventare vuoto
+  $('#query').val('');                            //gli dico di azzerare anche quello che sta dentro input
 }
 
 
@@ -138,18 +138,20 @@ function printResult(type, results) {                      //creo funzione che m
     var posterImage;                                        //creo var del poster
     var urlBaseImage = 'https://image.tmdb.org/t/p/w342';   //creo var che contiene url dove andremo a prender il poster
 
-    if(thisResult.poster_path == null) {                    //gli dico che se poster_path e' null deve stampare un immagine che ho io
+    if(thisResult.poster_path == null) {               //gli dico che se poster_path e' null deve stampare un immagine che ho io
       posterImage = '<img src="img/default-poster.png" alt="'+ title +'">'
     } else {                                                //in caso stampa immagine corrispondente
     posterImage = '<img src="' + urlBaseImage + thisResult.poster_path + '" alt="'+ title +'">'
     }
 
-    var context = {                                   //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
-      title: thisResult.title,                          //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
+    var context = {                //creo var context ovvero tutti i dati che voglio che mi escano nel risultato dopo la ricerca
+      title: thisResult.title,    //questi risulati pendo dal result della mia api e gli dico che al film ricercato devono uscire
       original_title: thisResult.original_title,
       original_language: printLanguage(thisResult.original_language),//gli dico che deve applicare la funzione printLanguage
       vote_average: printStars(thisResult.vote_average) , //gli dico che deve applicare la funzione printStars a questo film
-      poster: posterImage
+      poster: posterImage,
+      backdrop_path: thisResult.backdrop_path,
+      overview: thisResult.overview
    };
     var html = template(context);                     //creo var htlm e gli dico dove andare a stampaare nel mio html
     container.append(html);
@@ -189,7 +191,7 @@ $('#lente').click(function(){                           //al click sull'icona vi
 });
 
 
-$('#prec').hide();                                                 //dico come si devono comportare le arrow aggiungendo animazione
+$('#prec').hide();                                              //dico come si devono comportare le arrow aggiungendo animazione
 
   $('.films').animate({scrollLeft: 0});
 
