@@ -86,7 +86,10 @@ header{
   color: white;
   cursor: pointer;
 }
-
+.container-video {
+  width: 100%;
+  position: relative;
+}
 li  {
   list-style: none;
 }
@@ -248,17 +251,20 @@ h1{
 }
 .title-avengers  {
   position: absolute;
-  top: 400px;
-  left: 50px;
+  top: 35%;
+  left: 3%;
   height: 150px;
   z-index: 3;
+
 }
 
 .container_button {
   position: absolute;
-  top: 600px;
-  left: 50px;
+  top: 65%;
+  left: 3%;
   z-index: 3;
+  
+  padding-top: 3%;
 }
 .button {
   height: 50px;

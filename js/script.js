@@ -96,7 +96,7 @@ function getTv(string) {                                  //creo stessa funzione
     data: {
       api_key: api_key,
       query: string,
-      language: 'it-IT'
+      language: 'it-IT',
     },
     success: function(data) {
       if(data.total_results > 0) {
